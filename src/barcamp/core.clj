@@ -10,7 +10,7 @@
 (defn handler [req]
   (str "<pre>" (with-out-str (pprint req))))
 
-#_(defn wrap-foo [handler]
+(defn wrap-foo [handler]
   (fn [req]
     (handler (assoc req :foo "wheee!"))))
 
@@ -18,20 +18,16 @@
   (GET "/foo" req (handler req))
   (POST "/bar" req (handler2 req)))
 
-#_(defroutes routes
-  (GET "/foo/:bar" [bar] (handler bar)))
-
 (defroutes routes
 
-  (route/resources "/")
-
-  (ANY "*" req handler)
+  (GET "/" req handler)
   
-  (HEAD "*" _ {:status 404})
+  (GET "/foo/:bar" [bar] (handler bar))
+  
   (ANY "*" _ {:status 404 :body "not found"}))
 
 (def app (-> #'routes
-           ;;wrap-foo
+           wrap-foo
            ;;wrap-keyword-params
            ;;wrap-params
            ;;wrap-cookies
