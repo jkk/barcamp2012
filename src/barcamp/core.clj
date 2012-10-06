@@ -4,7 +4,8 @@
             [ring.adapter.jetty :refer [run-jetty]]
             [ring.middleware.params :refer [wrap-params]]
             [ring.middleware.keyword-params :refer [wrap-keyword-params]]
-            [ring.middleware.cookies :refer [wrap-cookies]]))
+            [ring.middleware.cookies :refer [wrap-cookies]]
+            [clojure.pprint :refer [pprint]]))
 
 (defn handler [req]
   (str "<pre>" (with-out-str (pprint req))))
