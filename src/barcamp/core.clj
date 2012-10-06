@@ -20,7 +20,7 @@
 #_(defroutes routes
   (GET "/foo/:bar" [bar] (handler bar)))
 
-#_(defroutes routes
+(defroutes routes
 
   (route/resources "/")
 
