@@ -1,6 +1,4 @@
-# barcamp
-
-A Clojure library designed to ... well, that part is up to you.
+# Intro to Clojure Web Dev - Barcamp Rochester 2012
 
 ## Usage
 
