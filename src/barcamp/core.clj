@@ -30,7 +30,7 @@
   (ANY "*" _ {:status 404 :body "not found"}))
 
 (def app (-> #'routes
-           wrap-foo
+           ;;wrap-foo
            ;;wrap-keyword-params
            ;;wrap-params
            ;;wrap-cookies
